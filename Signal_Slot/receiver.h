@@ -9,7 +9,8 @@ class Receiver : public QObject
 public:
     explicit Receiver(QObject *parent = nullptr);
 
-signals:
+public slots:
+    void ageChanged(int age);
 
 };
 
