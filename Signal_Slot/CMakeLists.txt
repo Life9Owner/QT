@@ -15,6 +15,7 @@ find_package(Qt${QT_VERSION_MAJOR} REQUIRED COMPONENTS Core)
 add_executable(Signal_Slot
   main.cpp
   sender.h sender.cpp
+  receiver.h receiver.cpp
 )
 target_link_libraries(Signal_Slot Qt${QT_VERSION_MAJOR}::Core)
 
