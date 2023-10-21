@@ -1,6 +1,7 @@
 #include "mainwindow.h"
 #include "./ui_mainwindow.h"
 #include<QtWidgets>
+#include<QDebug>
 MainWindow::MainWindow(QWidget *parent)
     : QMainWindow(parent)
     , ui(new Ui::MainWindow)
@@ -10,8 +11,9 @@ MainWindow::MainWindow(QWidget *parent)
     centralWidget()->setAttribute(Qt::WA_TransparentForMouseEvents);//set this,or centralWidget get the mouse event.
     this->setMouseTracking(true);
     auto *quitBtn=new QPushButton("Quit",this);
-    quitBtn->setGeometry(50,25,100,50);
+    quitBtn->setGeometry(50,25,500,50);
     connect(quitBtn,&QPushButton::clicked,qApp,&QApplication::quit);
+    //(objsender,signal,objreceiver,slot)
 }
 
 MainWindow::~MainWindow()
@@ -24,6 +26,11 @@ void MainWindow::keyPressEvent(QKeyEvent *event)
     if(event->key()==Qt::Key_Escape)
     {
         qApp->quit();
+    }
+    else if(event->key()==Qt::Key_J)
+    {
+        qDebug()<<"hello world"<<"this is key 'j'";
+//        qApp->quit();
     }
 }
 
